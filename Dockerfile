@@ -398,6 +398,7 @@ RUN [ ! -f usr/local/etc/sshd_config ]; \
 	sed -r \
 		-e 's/^#(UseDNS[[:space:]])/\1/' \
 		-e 's/^#(PermitUserEnvironment)[[:space:]].*$/\1 yes/' \
+		-e 's/^#(PasswordAuthentication)[[:space:]].*$/\1 no/' \
 		usr/local/etc/ssh/sshd_config.orig \
 		> usr/local/etc/ssh/sshd_config; \
 	grep '^UseDNS no$' usr/local/etc/ssh/sshd_config; \
